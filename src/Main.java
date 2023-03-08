@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Main {
     static Scanner read = new Scanner(System.in);
+    static String[][] playlist = new String[50][2];
     public static void main(String[] args) {
 
     }
@@ -34,5 +35,8 @@ public class Main {
             }
         } while(opcion != 6);
             System.out.println("Saliendo...");
+    }
+    public static String[][] anadirCancion(String[][] x){
+
     }
 }
