@@ -24,6 +24,7 @@ public class Main {
                 case 2:
                     break;
                 case 3:
+                    BuscarCancionArtista(playlist);
                     break;
                 case 4:
                     break;
@@ -56,8 +57,19 @@ public class Main {
         return value;
     }
     public static String[][] BuscarCancionArtista(String[][] y){
-        String artista = null;
-        System.out.println("De que artista quieres buscar sus canciones?");
-
+        int respuesta= 0;
+        String artistaCancion=getString("De que artista quieres buscar sus canciones?");
+        if (artistaCancion.equals("")){
+            return y;
+        }else{
+            System.out.println("No se ha encontrado este artista desea añadir una cancion nueva? pulsa 0 para no y pulsa 1 para si");
+            respuesta= read.nextInt();
+            if (respuesta == 0){
+                Menu();
+            } else if (respuesta == 1) {
+                anadirCancion(playlist);
+            }
+        }
+        return y;
     }
 }
