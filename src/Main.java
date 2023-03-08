@@ -3,7 +3,8 @@ public class Main {
     static Scanner read = new Scanner(System.in);
     static String[][] playlist = new String[50][2];
     public static void main(String[] args) {
-        Menu();
+        Main main = new Main();
+        main.Menu();
     }
 
     public static void Menu(){
