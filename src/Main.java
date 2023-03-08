@@ -36,12 +36,16 @@ public class Main {
         } while(opcion != 6);
             System.out.println("Saliendo...");
     }
-    public static String[][] anadirCancion(String[][] x){
+    public static String[][] anadirCancion(String[][] cancion){
 
     }
-    public static String[][] BuscarCancionArtista(String[][] y){
-        String artista = null;
-        System.out.println("De que artista quieres buscar sus canciones?");
 
+    private static String getString(String message) {
+        String value;
+        System.out.println(message);
+        value = read.next();
+        read.nextLine();
+        read.close();
+        return value;
     }
 }
