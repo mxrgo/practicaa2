@@ -36,9 +36,10 @@ public class Main {
         } while(opcion != 6);
             System.out.println("Saliendo...");
     }
-    public static String[][] anadirCancion(String[][] x){
+    public static String[][] anadirCancion(String[][] cancion){
 
     }
+
     private static String getString(String message) {
         String value;
         System.out.println(message);
