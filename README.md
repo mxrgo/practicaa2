@@ -1,4 +1,4 @@
-# practicaa2
+# Practica_2
 
 El concepto de la aplicación que vamos crear consiste en almacenamiento de canciones, recomendaciones de las mismas y creación de playlists.
 
