@@ -19,6 +19,7 @@ public class Main {
             System.out.println("6. Salir");
             switch(opcion){
                 case 1:
+                    anadirCancion(playlist);
                     break;
                 case 2:
                     break;
@@ -36,10 +37,16 @@ public class Main {
         } while(opcion != 6);
             System.out.println("Saliendo...");
     }
-    public static String[][] anadirCancion(String[][] cancion){
-
+    public static String[][] anadirCancion(String[][] x){
+        String artista = getString("Escribe el nombre del artista");
+        String cancion = getString("Escribe el nombre de la canción");
+        return x;
     }
 
+    public static String[][] buscarCancion(String[][] a){
+        String busca = getString("Introduce el nombre de la canción");
+        return a;
+    }
     private static String getString(String message) {
         String value;
         System.out.println(message);
