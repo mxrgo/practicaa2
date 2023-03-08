@@ -60,7 +60,7 @@ public class Main {
         int respuesta= 0;
         String artistaCancion=getString("De que artista quieres buscar sus canciones?");
         if (artistaCancion.equals("")){
-            return y;
+            return BuscarCancionArtista(playlist);
         }else{
             System.out.println("No se ha encontrado este artista desea añadir una cancion nueva? pulsa 0 para no y pulsa 1 para si");
             respuesta= read.nextInt();
