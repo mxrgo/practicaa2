@@ -27,19 +27,23 @@ public class Main {
                     BuscarCancionArtista(playlist);
                     break;
                 case 4:
+                    Recomendacion(playlist);
                     break;
                 case 5:
                     MostrarPlaylistEntera(playlist);
                     break;
                 case 6:
                     break;
+                    // el defaul hace que si pones una opcion no valida te dice que no existe y te vuelve a mostrar el menu
                 default:
                     System.out.println("Opción no valida");
             }
+            // para que si elijas salir salga de la app
         } while(opcion != 6);
             System.out.println("Saliendo...");
     }
 
+    // canciones por defecto para tener contenido recomendado en la playlist
     public static String [][] CancionesPorDefecto(String[][] j){
         playlist[0][0] = "Live goes on";
         playlist[0][1]= "BTS";
@@ -53,6 +57,8 @@ public class Main {
         playlist[4][4]= "Rosalia";
         return j;
     }
+
+    // para poder guardar las respuestas automaticamente en la array
     private static String getString(String message) {
         String value;
         System.out.println(message);
@@ -61,17 +67,21 @@ public class Main {
         read.close();
         return value;
     }
+
+    // metodo para la utilidad de la opcion 1
     public static String[][] anadirCancion(String[][] x){
         String artista = getString("Escribe el nombre del artista");
         String cancion = getString("Escribe el nombre de la canción");
         return x;
     }
 
+    // metodo para la utilidad de la opcion 2
     public static String[][] buscarCancion(String[][] a){
         String busca = getString("Introduce el nombre de la canción");
         return a;
     }
 
+    // metodo para la utilidad de la opcion 3
     public static String[][] BuscarCancionArtista(String[][] y){
         int respuesta= 0;
         String artistaCancion=getString("De que artista quieres buscar sus canciones?");
@@ -89,6 +99,18 @@ public class Main {
         return y;
     }
 
+    // metodo para la utilidad de la opcion 4
+    public static String[][] Recomendacion(String[][] r){
+        System.out.println("Estas son las canciones que te recomendamos...");
+        for (int i = 0; i < playlist.length; i++) {
+            for (int j = 0; j < playlist.length; j++) {
+                System.out.println(""+playlist[i][j]);
+            }
+        }
+        return r;
+    }
+
+    // metodo para la utilidad de la opcion 5
     public static String[][] MostrarPlaylistEntera(String[][] d){
 
         System.out.println("estas son las canciones que estan actualmente en tu lista");
