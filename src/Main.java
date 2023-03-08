@@ -3,13 +3,12 @@ public class Main {
     static Scanner read = new Scanner(System.in);
     static String[][] playlist = new String[50][2];
     public static void main(String[] args) {
-        Main main = new Main();
-        main.Menu();
+        System.out.println("¡Bienvenidx a la aplicación! Elige que quieres hacer");
+        Menu();
     }
 
     public static void Menu(){
         int opcion = 0;
-        read.nextInt();
         do {
             System.out.println("¡Bienvenidx a la aplicación! Elige que quieres hacer");
             System.out.println("1. Añadir nueva canción ");
@@ -18,6 +17,7 @@ public class Main {
             System.out.println("4. Recomendación de la canción");
             System.out.println("5. Mostrar playlist entero");
             System.out.println("6. Salir");
+            opcion = read.nextInt();
             switch(opcion){
                 case 1:
                     anadirCancion(playlist);
