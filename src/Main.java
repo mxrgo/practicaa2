@@ -53,6 +53,14 @@ public class Main {
         playlist[4][4]= "Rosalia";
         return j;
     }
+    private static String getString(String message) {
+        String value;
+        System.out.println(message);
+        value = read.next();
+        read.nextLine();
+        read.close();
+        return value;
+    }
     public static String[][] anadirCancion(String[][] x){
         String artista = getString("Escribe el nombre del artista");
         String cancion = getString("Escribe el nombre de la canción");
@@ -63,14 +71,7 @@ public class Main {
         String busca = getString("Introduce el nombre de la canción");
         return a;
     }
-    private static String getString(String message) {
-        String value;
-        System.out.println(message);
-        value = read.next();
-        read.nextLine();
-        read.close();
-        return value;
-    }
+
     public static String[][] BuscarCancionArtista(String[][] y){
         int respuesta= 0;
         String artistaCancion=getString("De que artista quieres buscar sus canciones?");
