@@ -39,10 +39,4 @@ public class Main {
     public static String[][] anadirCancion(String[][] x){
 
     }
-
-    public static String[][] BuscarCancionArtista(String[][] y){
-        String artista = null;
-        System.out.println("De que artista quieres buscar sus canciones?");
-
-    }
 }
