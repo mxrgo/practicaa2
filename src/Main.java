@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
     static Scanner read = new Scanner(System.in);
-    static String[][] playlist = new String[50][2];
+    static String[][] playlist = new String[50][50];
     public static void main(String[] args) {
         Menu();
     }
@@ -29,6 +29,7 @@ public class Main {
                 case 4:
                     break;
                 case 5:
+                    MostrarPlaylistEntera(playlist);
                     break;
                 case 6:
                     break;
@@ -37,6 +38,20 @@ public class Main {
             }
         } while(opcion != 6);
             System.out.println("Saliendo...");
+    }
+
+    public static String [][] CancionesPorDefecto(String[][] j){
+        playlist[0][0] = "Live goes on";
+        playlist[0][1]= "BTS";
+        playlist[1][0]= "flowers";
+        playlist[1][1]= "Miley Cirus";
+        playlist[2][1]= "Amorfoda";
+        playlist[2][2]= "bad Bunny";
+        playlist[3][2]= "Toxic";
+        playlist[3][3]= "Britney Spears";
+        playlist[4][3]= "Malamente";
+        playlist[4][4]= "Rosalia";
+        return j;
     }
     public static String[][] anadirCancion(String[][] x){
         String artista = getString("Escribe el nombre del artista");
@@ -71,5 +86,18 @@ public class Main {
             }
         }
         return y;
+    }
+
+    public static String[][] MostrarPlaylistEntera(String[][] d){
+
+        System.out.println("estas son las canciones que estan actualmente en tu lista");
+
+        for (int i = 0; i < playlist.length; i++) {
+            for (int j = 0; j < playlist.length; j++) {
+                System.out.println(""+playlist[i][j]);
+            }
+        }
+
+        return d;
     }
 }
