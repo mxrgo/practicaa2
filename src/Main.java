@@ -39,4 +39,12 @@ public class Main {
     public static String[][] anadirCancion(String[][] x){
 
     }
+    private static String getString(String message) {
+        String value;
+        System.out.println(message);
+        value = read.next();
+        read.nextLine();
+        read.close();
+        return value;
+    }
 }
