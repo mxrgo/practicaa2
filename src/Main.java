@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.lang.String;
+
 public class Main {
     static Scanner read = new Scanner(System.in);
     static String[][] playlist = new String[50][2];
@@ -21,6 +21,11 @@ public class Main {
             switch(opcion){
                 case 1:
                     anadirCancion(playlist);
+                    for (int i = 0; i < playlist.length; i++){
+                        for (int j = 0; j < playlist.length; j++){
+                            System.out.print(playlist[i][j] + " ");
+                        }
+                    }
                     Menu();
                     break;
                 case 2:
@@ -74,12 +79,14 @@ public class Main {
     }
 
     // metodo para la utilidad de la opcion 1
-    public static String[][] anadirCancion(String[][] x){
-
-        String artista = getString("Escribe el nombre del artista");
-        String cancion = getString("Escribe el nombre de la canción");
-
-        return x;
+    public static String[][] anadirCancion(String[][] x) {
+        for (int i = 0; i < playlist.length; i++) {
+            for (int j = 0; j < playlist[i].length; j++){
+                String cancion = getString("Escribe el nombre del artista "+i+" y el nombre de la cancion " +j);
+                playlist[i][j] = cancion;
+            }
+        }
+        return playlist;
     }
 
     // metodo para la utilidad de la opcion 2
