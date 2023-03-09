@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.String;
 public class Main {
     static Scanner read = new Scanner(System.in);
     static String[][] playlist = new String[50][2];
@@ -122,7 +123,7 @@ public class Main {
     // metodo para la utilidad de la opcion 5
     public static String[][] MostrarPlaylistEntera(String[][] d){
 
-        System.out.println("Estas son las canciones que estan actualmente en tu lista");
+        System.out.println("Estas son las canciones que estan actualmente en tu playlist");
 
         for (int i = 0; i < playlist.length; i++) {
             for (int j = 0; j < playlist.length; j++) {
