@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Main {
     static Scanner read = new Scanner(System.in);
-    static String[][] playlist = new String[50][50];
+    static String[][] playlist = new String[50][2];
     public static void main(String[] args) {
         Menu();
     }
@@ -20,8 +20,10 @@ public class Main {
             switch(opcion){
                 case 1:
                     anadirCancion(playlist);
+                    Menu();
                     break;
                 case 2:
+                    buscarCancion(playlist);
                     break;
                 case 3:
                     BuscarCancionArtista(playlist);
@@ -38,7 +40,7 @@ public class Main {
                 default:
                     System.out.println("Opción no valida");
             }
-            // para que si elijas salir salga de la app
+            // para que si el usuario elige salir salga de la app
         } while(opcion != 6);
             System.out.println("Saliendo...");
     }
@@ -46,15 +48,17 @@ public class Main {
     // canciones por defecto para tener contenido recomendado en la playlist
     public static String [][] CancionesPorDefecto(String[][] j){
         playlist[0][0] = "Live goes on";
-        playlist[0][1]= "BTS";
-        playlist[1][0]= "flowers";
-        playlist[1][1]= "Miley Cirus";
-        playlist[2][1]= "Amorfoda";
-        playlist[2][2]= "bad Bunny";
-        playlist[3][2]= "Toxic";
-        playlist[3][3]= "Britney Spears";
-        playlist[4][3]= "Malamente";
-        playlist[4][4]= "Rosalia";
+        playlist[0][1] = "BTS";
+        playlist[1][0] = "Flowers";
+        playlist[1][1] = "Miley Cirus";
+        playlist[2][0] = "Amorfoda";
+        playlist[2][1] = "Bad Bunny";
+        playlist[3][0] = "Toxic";
+        playlist[3][1] = "Britney Spears";
+        playlist[4][0] = "Malamente";
+        playlist[4][1] = "Rosalia";
+        playlist[5][0] = "God's Menu";
+        playlist[5][1] = "Stray Kids";
         return j;
     }
 
@@ -70,14 +74,19 @@ public class Main {
 
     // metodo para la utilidad de la opcion 1
     public static String[][] anadirCancion(String[][] x){
+
         String artista = getString("Escribe el nombre del artista");
         String cancion = getString("Escribe el nombre de la canción");
+
         return x;
     }
 
     // metodo para la utilidad de la opcion 2
     public static String[][] buscarCancion(String[][] a){
         String busca = getString("Introduce el nombre de la canción");
+        if (busca.equals(getString(""))){
+            return buscarCancion(playlist);
+        }
         return a;
     }
 
@@ -113,7 +122,7 @@ public class Main {
     // metodo para la utilidad de la opcion 5
     public static String[][] MostrarPlaylistEntera(String[][] d){
 
-        System.out.println("estas son las canciones que estan actualmente en tu lista");
+        System.out.println("Estas son las canciones que estan actualmente en tu lista");
 
         for (int i = 0; i < playlist.length; i++) {
             for (int j = 0; j < playlist.length; j++) {
