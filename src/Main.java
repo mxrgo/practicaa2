@@ -29,7 +29,7 @@ public class Main {
                     Menu();
                     break;
                 case 2:
-                    buscarCancion(playlist);
+                    buscarCancion(playlist, getString(""));
                     break;
                 case 3:
                     BuscarCancionArtista(playlist);
@@ -89,13 +89,19 @@ public class Main {
         return playlist;
     }
 
+
+
     // metodo para la utilidad de la opcion 2
-    public static String[][] buscarCancion(String[][] a){
-        String busca = getString("Introduce el nombre de la canción");
-        if (busca.equals(getString(""))){
-            return buscarCancion(playlist);
+    public static void buscarCancion(String[][] playlist, String busca){
+        busca = getString("Introduce el nombre de la canción");
+        StringBuilder sb = new StringBuilder();
+        for (String[] row : playlist) {
+            for (String element : row) {
+                if (element.equals(getString(""))) {
+                    sb.append(element);
+                }
+            }
         }
-        return a;
     }
 
     // metodo para la utilidad de la opcion 3
