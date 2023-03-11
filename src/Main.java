@@ -1,7 +1,10 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     static Scanner read = new Scanner(System.in);
+    static ArrayList <String> playlistp = new ArrayList<>(Arrays.asList("artista", "cancion"));
     static String[][] playlist = new String[50][2];
     public static void main(String[] args) {
         Menu();
@@ -20,12 +23,7 @@ public class Main {
             opcion = read.nextInt();
             switch(opcion){
                 case 1:
-                    anadirCancion(playlist);
-                    for (int i = 0; i < playlist.length; i++){
-                        for (int j = 0; j < playlist.length; j++){
-                            System.out.print(playlist[i][j] + " ");
-                        }
-                    }
+                    anadirCancion(playlistp);
                     Menu();
                     break;
                 case 2:
@@ -74,19 +72,16 @@ public class Main {
         System.out.println(message);
         value = read.next();
         read.nextLine();
-        read.close();
         return value;
     }
 
     // metodo para la utilidad de la opcion 1
-    public static String[][] anadirCancion(String[][] x) {
-        for (int i = 0; i < playlist.length; i++) {
-            for (int j = 0; j < playlist[i].length; j++){
-                String cancion = getString("Escribe el nombre del artista "+i+" y el nombre de la cancion " +j);
-                playlist[i][j] = cancion;
-            }
-        }
-        return playlist;
+    public static ArrayList<String> anadirCancion(ArrayList<String> addSong) {
+        String artista = getString("Introduce el nombre del artista");
+        String cancion = getString("Introduce el nombre de la cancion");
+        playlistp.add(artista);
+        playlistp.add(cancion);
+        return addSong;
     }
 
 
@@ -116,7 +111,7 @@ public class Main {
             if (respuesta == 0){
                 Menu();
             } else if (respuesta == 1) {
-                anadirCancion(playlist);
+                anadirCancion(playlistp);
             }
         }
         return y;
