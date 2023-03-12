@@ -57,6 +57,20 @@ public class Main {
         return j;
     }
 
+    public static ArrayList<String> playlistCanciones(ArrayList <String> songs){
+
+        playlistp.add(0, "BTS");
+        playlistp.add(1, "Euphoria");
+        playlistp.add(0, "Stray Kids");
+        playlistp.add(1, "Case 143");
+        playlistp.add(0, "ITZY");
+        playlistp.add(1, "Wannabe");
+        playlistp.add(0, "Twice");
+        playlistp.add(1, "ICON");
+
+        return songs;
+    }
+
     // para poder guardar las respuestas automaticamente en la array
     private static String getString(String message) {
         String value;
@@ -76,16 +90,8 @@ public class Main {
 
 
     // metodo para la utilidad de la opcion 2
-    public static void buscarCancion(String[][] playlist, String busca){
-        busca = getString("Introduce el nombre de la canción");
-        StringBuilder sb = new StringBuilder();
-        for (String[] row : playlist) {
-            for (String element : row) {
-                if (element.equals(getString(""))) {
-                    sb.append(element);
-                }
-            }
-        }
+    public static void buscarCancion(){
+
     }
 
     // metodo para la utilidad de la opcion 3
