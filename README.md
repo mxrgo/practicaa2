@@ -10,8 +10,6 @@ El menú que va tener nuestra aplicación tendrá 5 opciones: 1) añadir canció
 
 3. **Buscar todas las canciones del artista** Si el usuario accede a esta opción, el programa le preguntará el nombre del artista del cuál desee buscar sus canciones, en caso de que exista dicho artista, le mostrará las canciones de este artista, en caso negativo, saldrá un mensaje de que no encontro el artista y que si desea añadir canciones de ese artista, si dice que si (S), se le mandará a la opcion 1, si dice que no (N), le mandará al menu principal. 
 
-4. **Recomendación de la canción** Si el usuario no sabe que buscar o escuchar y desea una cancion aleatoria, el programa le mostrará una canción aleatoria de entre las canciones introducidas por defecto del propio programa.
+4. **Mostrar playlist entero** Si quiere ver el playlist entero mostrará todas las canciones que hay en la lista.
 
-5. **Mostrar playlist entero** Si quiere ver el playlist entero mostrará todas las canciones que hay en la lista.
-
-6. **Salir de la aplicación** Saldrá automáticamente de la app mandando un mensaje de despedida.
+5. **Salir de la aplicación** Saldrá automáticamente de la app mandando un mensaje de despedida.
