@@ -2,7 +2,7 @@
 
 El concepto de la aplicación que vamos crear consiste en almacenamiento de canciones, recomendaciones de las mismas y creación de playlists.
 
-El menú que va tener nuestra aplicación tendrá 5 opciones: 1) añadir canción al playlist; 2) buscar canción del playlist; 3) buscar todas las canciones del artista; 4) recomendación de la canción; 5) mostrar playlist entero; y 6) salir de la aplicación.
+El menú que va tener nuestra aplicación tendrá 5 opciones: 1) añadir canción al playlist; 2) buscar canción del playlist; 3) buscar todas las canciones del artista; 4) mostrar playlist entero; y 5) salir de la aplicación.
 
 1. **Añadir canción a la playlist.** Si el usuario elige la primera opción va poder añadir el nombre de la canción y el nombre del artista y se va guardando estos datos en el playlist. Después de que el usuario introduzca los datos tendrá opción de añadir una canción más o salir al menu principal.
 
