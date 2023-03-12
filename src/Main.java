@@ -1,7 +1,11 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     static Scanner read = new Scanner(System.in);
-    static String[][] playlist = new String[50][50];
+    static ArrayList <String> playlistp = new ArrayList<>(Arrays.asList("artista", "cancion"));
+    static String[][] playlist = new String[50][2];
     public static void main(String[] args) {
         Menu();
     }
@@ -19,9 +23,11 @@ public class Main {
             opcion = read.nextInt();
             switch(opcion){
                 case 1:
-                    anadirCancion(playlist);
+                    anadirCancion(playlistp);
+                    Menu();
                     break;
                 case 2:
+                    buscarCancion(playlist, getString(""));
                     break;
                 case 3:
                     BuscarCancionArtista(playlist);
@@ -38,7 +44,7 @@ public class Main {
                 default:
                     System.out.println("Opción no valida");
             }
-            // para que si elijas salir salga de la app
+            // para que si el usuario elige salir salga de la app
         } while(opcion != 6);
             System.out.println("Saliendo...");
     }
@@ -46,15 +52,17 @@ public class Main {
     // canciones por defecto para tener contenido recomendado en la playlist
     public static String [][] CancionesPorDefecto(String[][] j){
         playlist[0][0] = "Live goes on";
-        playlist[0][1]= "BTS";
-        playlist[1][0]= "flowers";
-        playlist[1][1]= "Miley Cirus";
-        playlist[2][1]= "Amorfoda";
-        playlist[2][2]= "bad Bunny";
-        playlist[3][2]= "Toxic";
-        playlist[3][3]= "Britney Spears";
-        playlist[4][3]= "Malamente";
-        playlist[4][4]= "Rosalia";
+        playlist[0][1] = "BTS";
+        playlist[1][0] = "Flowers";
+        playlist[1][1] = "Miley Cirus";
+        playlist[2][0] = "Amorfoda";
+        playlist[2][1] = "Bad Bunny";
+        playlist[3][0] = "Toxic";
+        playlist[3][1] = "Britney Spears";
+        playlist[4][0] = "Malamente";
+        playlist[4][1] = "Rosalia";
+        playlist[5][0] = "God's Menu";
+        playlist[5][1] = "Stray Kids";
         return j;
     }
 
@@ -64,21 +72,31 @@ public class Main {
         System.out.println(message);
         value = read.next();
         read.nextLine();
-        read.close();
         return value;
     }
 
     // metodo para la utilidad de la opcion 1
-    public static String[][] anadirCancion(String[][] x){
-        String artista = getString("Escribe el nombre del artista");
-        String cancion = getString("Escribe el nombre de la canción");
-        return x;
+    public static ArrayList<String> anadirCancion(ArrayList<String> addSong) {
+        String artista = getString("Introduce el nombre del artista");
+        String cancion = getString("Introduce el nombre de la cancion");
+        playlistp.add(artista);
+        playlistp.add(cancion);
+        return addSong;
     }
 
+
+
     // metodo para la utilidad de la opcion 2
-    public static String[][] buscarCancion(String[][] a){
-        String busca = getString("Introduce el nombre de la canción");
-        return a;
+    public static void buscarCancion(String[][] playlist, String busca){
+        busca = getString("Introduce el nombre de la canción");
+        StringBuilder sb = new StringBuilder();
+        for (String[] row : playlist) {
+            for (String element : row) {
+                if (element.equals(getString(""))) {
+                    sb.append(element);
+                }
+            }
+        }
     }
 
     // metodo para la utilidad de la opcion 3
@@ -93,7 +111,7 @@ public class Main {
             if (respuesta == 0){
                 Menu();
             } else if (respuesta == 1) {
-                anadirCancion(playlist);
+                anadirCancion(playlistp);
             }
         }
         return y;
@@ -113,7 +131,7 @@ public class Main {
     // metodo para la utilidad de la opcion 5
     public static String[][] MostrarPlaylistEntera(String[][] d){
 
-        System.out.println("estas son las canciones que estan actualmente en tu lista");
+        System.out.println("Estas son las canciones que estan actualmente en tu playlist");
 
         for (int i = 0; i < playlist.length; i++) {
             for (int j = 0; j < playlist.length; j++) {
