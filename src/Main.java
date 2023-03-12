@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 public class Main {
     static Scanner read = new Scanner(System.in);
-    static ArrayList <String> playlistp = new ArrayList<>(Arrays.asList("artista", "cancion"));
-    static String[][] playlist = new String[50][2];
+    static ArrayList<String[]> playlistp = new ArrayList<String[]>();
+    static String[][] playlist = new String[50][50];
+
     public static void main(String[] args) {
         Menu();
     }
@@ -25,6 +26,7 @@ public class Main {
                 case 1:
                     anadirCancion(playlistp);
                     Menu();
+
                     break;
                 case 2:
                     buscarCancion(playlist, getString(""));
@@ -36,7 +38,7 @@ public class Main {
                     Recomendacion(playlist);
                     break;
                 case 5:
-                    MostrarPlaylistEntera(playlist);
+                    mostrarArrayList(playlistp);
                     break;
                 case 6:
                     break;
@@ -51,18 +53,7 @@ public class Main {
 
     // canciones por defecto para tener contenido recomendado en la playlist
     public static String [][] CancionesPorDefecto(String[][] j){
-        playlist[0][0] = "Live goes on";
-        playlist[0][1] = "BTS";
-        playlist[1][0] = "Flowers";
-        playlist[1][1] = "Miley Cirus";
-        playlist[2][0] = "Amorfoda";
-        playlist[2][1] = "Bad Bunny";
-        playlist[3][0] = "Toxic";
-        playlist[3][1] = "Britney Spears";
-        playlist[4][0] = "Malamente";
-        playlist[4][1] = "Rosalia";
-        playlist[5][0] = "God's Menu";
-        playlist[5][1] = "Stray Kids";
+
         return j;
     }
 
@@ -76,14 +67,12 @@ public class Main {
     }
 
     // metodo para la utilidad de la opcion 1
-    public static ArrayList<String> anadirCancion(ArrayList<String> addSong) {
+    public static ArrayList<String[]> anadirCancion(ArrayList<String[]> addSong) {
         String artista = getString("Introduce el nombre del artista");
-        String cancion = getString("Introduce el nombre de la cancion");
-        playlistp.add(artista);
-        playlistp.add(cancion);
+        String cancion = getString("Introduce el nombre de la cancion, si requiere espacios coloque _ en vez de espacios");
+        addSong.add(new String[]{artista, cancion});
         return addSong;
     }
-
 
 
     // metodo para la utilidad de la opcion 2
@@ -129,16 +118,11 @@ public class Main {
     }
 
     // metodo para la utilidad de la opcion 5
-    public static String[][] MostrarPlaylistEntera(String[][] d){
-
-        System.out.println("Estas son las canciones que estan actualmente en tu playlist");
-
-        for (int i = 0; i < playlist.length; i++) {
-            for (int j = 0; j < playlist.length; j++) {
-                System.out.println(""+playlist[i][j]);
-            }
+    public static void mostrarArrayList(ArrayList<String[]> lista) {
+        System.out.println("Contenido de la playlist:");
+        for (String[] elemento : lista) {
+            System.out.println(Arrays.toString(elemento));
         }
-
-        return d;
     }
+
 }
