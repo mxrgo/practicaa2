@@ -18,9 +18,8 @@ public class Main {
             System.out.println("1. Añadir nueva canción ");
             System.out.println("2. Buscar canción del playlist");
             System.out.println("3. Buscar todas las canciones del artista");
-            System.out.println("4. Recomendación de la canción");
-            System.out.println("5. Mostrar playlist entero");
-            System.out.println("6. Salir");
+            System.out.println("4. Mostrar playlist entero");
+            System.out.println("5. Salir");
             opcion = read.nextInt();
             switch(opcion){
                 case 1:
@@ -29,47 +28,25 @@ public class Main {
 
                     break;
                 case 2:
-                    buscarCancion(playlist, getString(""));
+                    buscarCancion(playlistp);
                     break;
                 case 3:
                     BuscarCancionArtista(playlist);
                     break;
                 case 4:
-                    Recomendacion(playlist);
-                    break;
-                case 5:
                     mostrarArrayList(playlistp);
                     break;
-                case 6:
+                case 5:
                     break;
                     // el defaul hace que si pones una opcion no valida te dice que no existe y te vuelve a mostrar el menu
                 default:
                     System.out.println("Opción no valida");
             }
             // para que si el usuario elige salir salga de la app
-        } while(opcion != 6);
+        } while(opcion != 5);
             System.out.println("Saliendo...");
     }
 
-    // canciones por defecto para tener contenido recomendado en la playlist
-    public static String [][] CancionesPorDefecto(String[][] j){
-
-        return j;
-    }
-
-    public static ArrayList<String> playlistCanciones(ArrayList <String> songs){
-
-        playlistp.add(0, "BTS");
-        playlistp.add(1, "Euphoria");
-        playlistp.add(0, "Stray Kids");
-        playlistp.add(1, "Case 143");
-        playlistp.add(0, "ITZY");
-        playlistp.add(1, "Wannabe");
-        playlistp.add(0, "Twice");
-        playlistp.add(1, "ICON");
-
-        return songs;
-    }
 
     // para poder guardar las respuestas automaticamente en la array
     private static String getString(String message) {
@@ -81,18 +58,31 @@ public class Main {
     }
 
     // metodo para la utilidad de la opcion 1
-    public static ArrayList<String[]> anadirCancion(ArrayList<String[]> addSong) {
-        String artista = getString("Introduce el nombre del artista");
-        String cancion = getString("Introduce el nombre de la cancion, si requiere espacios coloque _ en vez de espacios");
-        addSong.add(new String[]{artista, cancion});
-        return addSong;
+    public static void anadirCancion(ArrayList<String[]> playlistp) {
+        String artista = getString("Introduce el nombre del artista(usa _ en lugar de los espacios)");
+        String cancion = getString("Introduce el nombre de la canción(usa _ en lugar de los espacios)");
+        playlistp.add(new String[]{artista, cancion});
+        System.out.println("Canción añadida con éxito");
     }
+
 
 
     // metodo para la utilidad de la opcion 2
-    public static void buscarCancion(){
-
+    public static void buscarCancion(ArrayList<String[]> playlistp){
+        String busca = getString("Introduce el nombre de la canción");
+        boolean found = false;
+        for (String[] row : playlistp) {
+            if (row[1].equals(busca)) {
+                System.out.println("Se ha encontrado la canción:");
+                System.out.println(Arrays.toString(row));
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No se ha encontrado la canción");
+        }
     }
+
 
     // metodo para la utilidad de la opcion 3
     public static String[][] BuscarCancionArtista(String[][] y){
@@ -112,18 +102,8 @@ public class Main {
         return y;
     }
 
-    // metodo para la utilidad de la opcion 4
-    public static String[][] Recomendacion(String[][] r){
-        System.out.println("Estas son las canciones que te recomendamos...");
-        for (int i = 0; i < playlist.length; i++) {
-            for (int j = 0; j < playlist.length; j++) {
-                System.out.println(""+playlist[i][j]);
-            }
-        }
-        return r;
-    }
 
-    // metodo para la utilidad de la opcion 5
+    // metodo para la utilidad de la opcion 4
     public static void mostrarArrayList(ArrayList<String[]> lista) {
         System.out.println("Contenido de la playlist:");
         for (String[] elemento : lista) {
